@@ -49,25 +49,25 @@ These codes are intended to be used to convert seismic stacks from time to depth
    - create velocity volume if loading by surfaces
 
 10. plot_velocities 
-   - plot the velocity volumes
+    - plot the velocity volumes
 
 11. smooth_vel(sig)
-   - smooth the velocity volume (this smoother is wicked slow)
-   - sig (optional) = with of the smoothing kernel (default is 15)
-   - 
+    - smooth the velocity volume (this smoother is wicked slow)
+    - sig (optional) = with of the smoothing kernel (default is 15)
+
 12. create_depth_matrix 
-   - perform the depth conversion
+    - perform the depth conversion
 
 13. plot_seis 
-   - plot the time and depth volumes
+    - plot the time and depth volumes
 
 14. plot_vel_depth 
-   - plot the depth corrected velocity volumes
+    - plot the depth corrected velocity volumes
 
 15. export_volumes_surfer(fileprefix,dimension) 
-   - exports grids for plotting in surfer
-   - fileprefix = naming prefix for output file
-   - dimension = direction of output ('easting','northing',or 'tracenum')
+    - exports grids for plotting in surfer
+    - fileprefix = naming prefix for output file
+    - dimension = direction of output ('easting','northing',or 'tracenum')
 
  ### sample run
 ``` matlab
