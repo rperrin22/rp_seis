@@ -8,6 +8,10 @@ These codes are intended to be used to convert seismic stacks from time to depth
    - made it copy the velocity volume into the smoothed velocity volume
      in case you don't want to run the smoother.
 
+### Prerequisites
+1. Matlab
+2. SegyMAT (http://segymat.sourceforge.net/)
+
 ### Modules
 1. rp_seis(filename) 
    - initialize the object
