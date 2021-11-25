@@ -3,7 +3,7 @@
 ### Description
 These codes are intended to be used to convert seismic stacks from time to depth using either stacking velocities or user-defined interval velocities.
 
-last updated 24 November, 2021 - Rob
+- update 24 November, 2021 (Rob)
    - added a check and correction for zeros in the velocity volume.  
    - made it copy the velocity volume into the smoothed velocity volume
      in case you don't want to run the smoother.
