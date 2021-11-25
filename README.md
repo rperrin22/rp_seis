@@ -9,9 +9,9 @@ last updated 24 November, 2021 - Rob
      in case you don't want to run the smoother.
 
 ### Modules
-> rp_seis(filename) 
->>initialize the object
->>filename = segy file (header mapping from Key Seismic currently)
+1. rp_seis(filename) 
+   - initialize the object
+   - filename = segy file (header mapping from Key Seismic currently)
                   
 data_cut_cdps(cdpnum,cutdir) - cut cdps from the stack
                              - cdpnum = cdp boundary
@@ -56,44 +56,29 @@ export_volumes_surfer(fileprefix,dimension) - exports grids for plotting in surf
 
  ### sample run
 ``` matlab
- %%load toolboxes
- 
- addpath C:\Users\rperr\Dropbox\Matlab_codes_work\SegyMAT\
- 
- addpath C:\Users\rperr\Dropbox\DMT\Seis_depth_convert\
+%%load toolboxes
+addpath C:\Users\rperr\Dropbox\Matlab_codes_work\SegyMAT\
+addpath C:\Users\rperr\Dropbox\DMT\Seis_depth_convert\
 
- %% run the procedure!!
+%% initialize the object
+T = rp_seis('CRSstack_FH103_ZP.sgy');
 
- %% initialize the object
- 
- T = rp_seis('CRSstack_FH103_ZP.sgy');
+%% set mcmurray and devonian velocities
+T.upper_velocity = 1700; 
+T.lower_velocity = 3000;
 
- %% set mcmurray and devonian velocities
- 
- T.upper_velocity = 1700;
- 
- T.lower_velocity = 3000;
+%% load horizons
+T = T.load_surface_horizon_Opendtect('ground_surface_103.dat');
+T = T.load_horizon_Opendtect('Devonian_surface_103.dat');
 
- %% load horizons
- 
- T = T.load_surface_horizon_Opendtect('ground_surface_103.dat');
- 
- T = T.load_horizon_Opendtect('Devonian_surface_103.dat');
+%% build velocity models and plot
+T = T.create_velocity_volume;
+sig = 15.5; 
+T = T.smooth_vel(sig); 
+T.plot_velocities;
 
- %% build velocity models and plot
- 
- T = T.create_velocity_volume;
- 
- sig = 15.5;
- 
- T = T.smooth_vel(sig); % this smoother sucks, it takes too long to run, but it works
- 
- T.plot_velocities;
-
- %% convert the depth
- 
- T = T.create_depth_matrix;
- 
- T.plot_seis
-  ```
+%% convert the depth
+T = T.create_depth_matrix;
+T.plot_seis
+```
 
