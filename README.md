@@ -55,8 +55,7 @@ export_volumes_surfer(fileprefix,dimension) - exports grids for plotting in surf
                                             - dimension = direction of output ('easting','northing',or 'tracenum')
 
  ### sample run
-----------------------------------------------------------------------
-
+``` matlab
  %%load toolboxes
  
  addpath C:\Users\rperr\Dropbox\Matlab_codes_work\SegyMAT\
@@ -96,5 +95,5 @@ export_volumes_surfer(fileprefix,dimension) - exports grids for plotting in surf
  T = T.create_depth_matrix;
  
  T.plot_seis
- 
-----------------------------------------------------------------------
+  ```
+
