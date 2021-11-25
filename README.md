@@ -10,7 +10,7 @@ These codes are intended to be used to convert seismic stacks from time to depth
 
 ### Prerequisites
 1. Matlab
-2. SegyMAT (http://segymat.sourceforge.net/)
+2. SegyMAT (https://github.com/cultpenguin/segymat)
 
 ### Modules
 1. rp_seis(filename) 
