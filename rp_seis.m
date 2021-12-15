@@ -190,7 +190,7 @@ classdef rp_seis
             [obj.V,~,~] = ReadSegy(vel_filename);
 
             % check for zeros, if found set to 2000 m/s unless a corr_vel is added
-            if min(obj.V)==0
+            if min(obj.V(:))==0
                 fprintf('Warning: velocity zeros found, setting zero values to 2000 m\n')
                 if nargin==3
                     obj.V(obj.V==0) = corr_vel;
